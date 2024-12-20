@@ -37,9 +37,9 @@ class VMCompiler extends VM {
 }
 
 if (import.meta.main) {
-    const data = await readData("example_3.txt");
+    const data = await readData(Deno.args[0]);
     console.log(data.registers);
-    data.registers.A = 0b11100101011000000;
+    // data.registers.A = 0b11100101011000000;
     console.log(data.programs.join(","));
     const vm = new VMCompiler(data);
     const text = vm.compile();
